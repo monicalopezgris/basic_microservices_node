@@ -26,6 +26,6 @@ app.post("/events", (req, res) => {
   res.send({});
 });
 
-app.listen(4006, () => {
-  console.log("Listening 4006");
+app.listen(4002, () => {
+  console.log("Listening 4002");
 });
