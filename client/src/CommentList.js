@@ -1,10 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 export default ({comments}) => {
 
   const renderedComments = comments.map(comment => {
-    return <li key={comment.id}>{comment.content}</li>;
+    console.log(comment.status)
+    let content;
+    switch (comment.status) {
+      case 'approved':
+        content = comment.content;
+        break;
+      case 'pending':
+        content = 'Comment is pending moderation';
+        break;
+      case 'rejected':
+        content = 'Comment was rejected';
+        break;
+      
+      default:
+        break;
+    }
+
+    return <li key={comment.id}>{content}</li>;
   });
 
   return <ul>{renderedComments}</ul>;
